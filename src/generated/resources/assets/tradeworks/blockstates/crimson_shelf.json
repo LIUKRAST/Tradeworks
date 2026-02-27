@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x,top=false": {
+      "model": "tradeworks:block/crimson_shelf"
+    },
+    "axis=x,top=true": {
+      "model": "tradeworks:block/crimson_shelf"
+    },
+    "axis=z,top=false": {
+      "model": "tradeworks:block/crimson_shelf"
+    },
+    "axis=z,top=true": {
+      "model": "tradeworks:block/crimson_shelf"
+    }
+  }
+}

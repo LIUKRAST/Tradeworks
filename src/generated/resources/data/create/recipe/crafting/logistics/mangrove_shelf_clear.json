@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tradeworks:mangrove_shelf"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tradeworks:mangrove_shelf"
+  }
+}

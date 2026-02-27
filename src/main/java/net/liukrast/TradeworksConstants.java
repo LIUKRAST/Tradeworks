@@ -5,11 +5,15 @@ import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import net.createmod.catnip.lang.FontHelper;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Map;
+import java.util.stream.Stream;
 
 public class TradeworksConstants {
     private TradeworksConstants() {}
@@ -27,6 +31,16 @@ public class TradeworksConstants {
 
     public static ResourceLocation id(String path, Object... args) {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, String.format(path, args));
+    }
+
+    public static <T> Stream<T> getElements(Registry<T> registry) {
+        return getElementEntries(registry).map(Map.Entry::getValue);
+    }
+
+    public static <T> Stream<Map.Entry<String, T>> getElementEntries(Registry<T> registry) {
+        return registry.entrySet().stream()
+                .filter(t -> t.getKey().location().getNamespace().equals(MOD_ID))
+                .map(e -> Map.entry(e.getKey().location().getPath(), e.getValue()));
     }
 
     public static CreateRegistrate registrate() {

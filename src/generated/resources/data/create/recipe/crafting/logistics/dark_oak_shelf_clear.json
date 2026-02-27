@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tradeworks:dark_oak_shelf"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tradeworks:dark_oak_shelf"
+  }
+}

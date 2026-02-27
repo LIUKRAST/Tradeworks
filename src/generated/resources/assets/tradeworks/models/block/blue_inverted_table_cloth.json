@@ -1,0 +1,7 @@
+{
+  "parent": "create:block/table_cloth/block",
+  "render_type": "minecraft:cutout_mipped",
+  "textures": {
+    "0": "tradeworks:block/inverted_table_cloth/blue"
+  }
+}

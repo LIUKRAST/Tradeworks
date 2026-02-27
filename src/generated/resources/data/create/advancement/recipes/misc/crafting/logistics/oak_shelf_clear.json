@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_oak_shelf": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tradeworks:oak_shelf"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "create:crafting/logistics/oak_shelf_clear"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_oak_shelf"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "create:crafting/logistics/oak_shelf_clear"
+    ]
+  }
+}

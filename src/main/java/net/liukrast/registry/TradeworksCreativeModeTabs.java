@@ -17,11 +17,12 @@ public class TradeworksCreativeModeTabs {
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BASE_CREATIVE_TAB = REGISTER.register("base",
             () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.tradeworks.base"))
+                    .title(Component.translatable("itemGroup.tradeworks"))
                     .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
                     .icon(AllBlocks.COGWHEEL::asStack)
                     .displayItems((pars, out) -> {
                         TradeworksBlocks.INVERTED_TABLE_CLOTHS.forEach(out::accept);
+                        TradeworksBlocks.SHELVES.forEach(out::accept);
                     })
                     .build());
 

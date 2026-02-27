@@ -1,0 +1,6 @@
+{
+  "parent": "tradeworks:block/shelf/top",
+  "textures": {
+    "0": "tradeworks:block/shelf/birch"
+  }
+}
