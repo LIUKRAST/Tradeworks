@@ -7,10 +7,12 @@
       "model": "tradeworks:block/warped_shelf"
     },
     "axis=z,top=false": {
-      "model": "tradeworks:block/warped_shelf"
+      "model": "tradeworks:block/warped_shelf",
+      "y": 90
     },
     "axis=z,top=true": {
-      "model": "tradeworks:block/warped_shelf"
+      "model": "tradeworks:block/warped_shelf",
+      "y": 90
     }
   }
 }

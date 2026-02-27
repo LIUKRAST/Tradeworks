@@ -7,10 +7,12 @@
       "model": "tradeworks:block/mangrove_shelf"
     },
     "axis=z,top=false": {
-      "model": "tradeworks:block/mangrove_shelf"
+      "model": "tradeworks:block/mangrove_shelf",
+      "y": 90
     },
     "axis=z,top=true": {
-      "model": "tradeworks:block/mangrove_shelf"
+      "model": "tradeworks:block/mangrove_shelf",
+      "y": 90
     }
   }
 }

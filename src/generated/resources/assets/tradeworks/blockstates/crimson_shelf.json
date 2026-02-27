@@ -7,10 +7,12 @@
       "model": "tradeworks:block/crimson_shelf"
     },
     "axis=z,top=false": {
-      "model": "tradeworks:block/crimson_shelf"
+      "model": "tradeworks:block/crimson_shelf",
+      "y": 90
     },
     "axis=z,top=true": {
-      "model": "tradeworks:block/crimson_shelf"
+      "model": "tradeworks:block/crimson_shelf",
+      "y": 90
     }
   }
 }

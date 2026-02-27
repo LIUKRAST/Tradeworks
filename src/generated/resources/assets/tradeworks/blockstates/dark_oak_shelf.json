@@ -7,10 +7,12 @@
       "model": "tradeworks:block/dark_oak_shelf"
     },
     "axis=z,top=false": {
-      "model": "tradeworks:block/dark_oak_shelf"
+      "model": "tradeworks:block/dark_oak_shelf",
+      "y": 90
     },
     "axis=z,top=true": {
-      "model": "tradeworks:block/dark_oak_shelf"
+      "model": "tradeworks:block/dark_oak_shelf",
+      "y": 90
     }
   }
 }

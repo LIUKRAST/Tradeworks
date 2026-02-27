@@ -7,10 +7,12 @@
       "model": "tradeworks:block/bamboo_shelf"
     },
     "axis=z,top=false": {
-      "model": "tradeworks:block/bamboo_shelf"
+      "model": "tradeworks:block/bamboo_shelf",
+      "y": 90
     },
     "axis=z,top=true": {
-      "model": "tradeworks:block/bamboo_shelf"
+      "model": "tradeworks:block/bamboo_shelf",
+      "y": 90
     }
   }
 }

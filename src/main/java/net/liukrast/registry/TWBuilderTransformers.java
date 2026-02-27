@@ -14,6 +14,7 @@ import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
 import net.liukrast.block.ShelfBlock;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
@@ -35,7 +36,7 @@ public class TWBuilderTransformers {
                                 var top = state.getValue(ShelfBlock.TOP);
                                 var axis = state.getValue(ShelfBlock.HORIZONTAL_AXIS);
                                 return new ConfiguredModel[]{ConfiguredModel.builder().modelFile(p.models().withExistingParent(name + "_shelf", p.modLoc("block/shelf/" + (top ? "top" : "bottom")))
-                                        .texture("0", p.modLoc("block/shelf/" + name))).buildLast()};
+                                        .texture("0", p.modLoc("block/shelf/" + name))).rotationY(axis == Direction.Axis.X ? 0 : 90).buildLast()};
                             }, TableClothBlock.HAS_BE))
                     .onRegister(CreateRegistrate.blockModel(() -> TableClothModel::new))
                     .tag(AllTags.AllBlockTags.TABLE_CLOTHS.tag, soundTag)

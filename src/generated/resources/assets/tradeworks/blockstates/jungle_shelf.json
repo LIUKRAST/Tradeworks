@@ -7,10 +7,12 @@
       "model": "tradeworks:block/jungle_shelf"
     },
     "axis=z,top=false": {
-      "model": "tradeworks:block/jungle_shelf"
+      "model": "tradeworks:block/jungle_shelf",
+      "y": 90
     },
     "axis=z,top=true": {
-      "model": "tradeworks:block/jungle_shelf"
+      "model": "tradeworks:block/jungle_shelf",
+      "y": 90
     }
   }
 }

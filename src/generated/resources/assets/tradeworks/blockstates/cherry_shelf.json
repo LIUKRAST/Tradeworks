@@ -7,10 +7,12 @@
       "model": "tradeworks:block/cherry_shelf"
     },
     "axis=z,top=false": {
-      "model": "tradeworks:block/cherry_shelf"
+      "model": "tradeworks:block/cherry_shelf",
+      "y": 90
     },
     "axis=z,top=true": {
-      "model": "tradeworks:block/cherry_shelf"
+      "model": "tradeworks:block/cherry_shelf",
+      "y": 90
     }
   }
 }
