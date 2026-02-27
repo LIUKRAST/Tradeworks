@@ -8,9 +8,9 @@
   "client": [
   ],
   "injectors": {
-	"defaultRequire": 1
+    "defaultRequire": 1
   },
   "overwrites": {
-	"requireAnnotations": true
+    "requireAnnotations": true
   }
 }
