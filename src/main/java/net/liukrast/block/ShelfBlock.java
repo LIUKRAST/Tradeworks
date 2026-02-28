@@ -1,6 +1,7 @@
 package net.liukrast.block;
 
 import com.simibubi.create.content.logistics.tableCloth.TableClothBlockEntity;
+import net.createmod.catnip.math.VecHelper;
 import net.createmod.catnip.placement.IPlacementHelper;
 import net.createmod.catnip.placement.PlacementHelpers;
 import net.createmod.catnip.placement.PlacementOffset;
@@ -26,6 +27,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -207,5 +209,15 @@ public class ShelfBlock extends TableClothBlockImpl {
             };
             default -> state;
         };
+    }
+
+    public Vec3 getValueBox(TableClothBlockEntity be, BlockState state) {
+        float x = be.getItemsForRender().size() == 3 ? 4 : 0;
+        Vec3 v = !state.getValue(ShelfBlock.TOP) ? VecHelper.voxelSpace(8 + x, 2.75, 13.25) : VecHelper.voxelSpace(12, 12, 14.75);
+        return VecHelper.rotateCentered(v, -be.facing.toYRot(), Direction.Axis.Y);
+    }
+
+    public boolean shouldRenderSide(TableClothBlockEntity be) {
+        return be.getBlockState().getValue(TOP);
     }
 }

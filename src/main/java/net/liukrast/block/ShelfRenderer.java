@@ -32,14 +32,15 @@ public class ShelfRenderer extends SmartBlockEntityRenderer<TableClothBlockEntit
         super.renderSafe(blockEntity, partialTicks, ms, buffer, light, overlay);
         List<ItemStack> stacks = blockEntity.getItemsForRender();
         float rotationInRadians = Mth.DEG_TO_RAD * (180 - blockEntity.facing.toYRot());
-        var top = blockEntity.getBlockState().getValue(ShelfBlock.TOP);
+        var block = (ShelfBlock)(blockEntity.getBlockState().getBlock());
 
         if (blockEntity.isShop()) {
-            if(!top) {
+            if(!block.shouldRenderSide(blockEntity)) {
+                float x = stacks.size() == 3 ? -4/16f : 0;
                 CachedBuffers
                         .partial(AllPartialModels.TABLE_CLOTH_PRICE_TOP, blockEntity.getBlockState())
                         .rotateCentered(rotationInRadians, Direction.UP)
-                        .translate(0, 2/16f, 2/16f)
+                        .translate(x, 2/16f, 2/16f)
                         .light(light)
                         .overlay(overlay)
                         .renderInto(ms, buffer.getBuffer(RenderType.cutout()));

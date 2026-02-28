@@ -2,10 +2,10 @@ package net.liukrast.registry;
 
 import com.simibubi.create.content.logistics.tableCloth.TableClothBlock;
 import com.simibubi.create.foundation.block.DyedBlockList;
-import com.simibubi.create.foundation.data.BuilderTransformers;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.liukrast.TradeworksConstants;
+import net.liukrast.block.MetalShelfBlock;
 import net.liukrast.block.ShelfBlock;
 import net.liukrast.block.TableClothBlockImpl;
 import net.minecraft.world.level.block.Blocks;
@@ -39,8 +39,8 @@ public class TradeworksBlocks {
                     .register()
             ).toList();
 
-    public static final List<BlockEntry<ShelfBlock>> METAL_SHELVES = WoodType.values()
-            .map(type -> REGISTRATE.block(type.name() + "_metal_shelf", p -> new ShelfBlock(p, type.name()))
+    public static final List<BlockEntry<MetalShelfBlock>> METAL_SHELVES = WoodType.values()
+            .map(type -> REGISTRATE.block(type.name() + "_metal_shelf", p -> new MetalShelfBlock(p, type.name()))
                     .transform(TWBuilderTransformers.shelf(type.name(), () -> Blocks.OAK_PLANKS, "metal_shelf", "cutout"))
                     //TODO: .properties(p -> p.mapColor())
                     /*.recipe((c, p) -> {
