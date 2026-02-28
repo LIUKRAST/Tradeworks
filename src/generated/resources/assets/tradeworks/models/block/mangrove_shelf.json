@@ -1,6 +1,0 @@
-{
-  "parent": "tradeworks:block/shelf/bottom",
-  "textures": {
-    "0": "tradeworks:block/shelf/mangrove"
-  }
-}

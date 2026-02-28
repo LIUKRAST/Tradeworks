@@ -7,6 +7,7 @@ import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.liukrast.TradeworksConstants;
 import net.liukrast.block.ShelfBlock;
+import net.liukrast.block.ShelfRenderer;
 import net.minecraft.world.level.block.Block;
 
 import java.util.Arrays;
@@ -18,8 +19,14 @@ public class TradeworksBlockEntityTypes {
     public static final BlockEntityEntry<TableClothBlockEntity> TABLE_CLOTH =
             REGISTRATE.blockEntity("table_cloth", TableClothBlockEntity::new)
                     .validBlocks(TradeworksBlocks.INVERTED_TABLE_CLOTHS.toArray())
+                    .renderer(() -> TableClothRenderer::new)
+                    .register();
+
+    public static final BlockEntityEntry<TableClothBlockEntity> SHELF =
+            REGISTRATE.blockEntity("shelf", TableClothBlockEntity::new)
                     .validBlocks(toArray(TradeworksBlocks.SHELVES))
-                    //.renderer(() -> TableClothRenderer::new)
+                    .validBlocks(toArray(TradeworksBlocks.METAL_SHELVES))
+                    .renderer(() -> ShelfRenderer::new)
                     .register();
 
     @SuppressWarnings("unchecked")

@@ -1,8 +1,10 @@
 package net.liukrast;
 
+import net.liukrast.datagen.TradeworksDatagen;
 import net.liukrast.registry.TradeworksBlockEntityTypes;
 import net.liukrast.registry.TradeworksBlocks;
 import net.liukrast.registry.TradeworksCreativeModeTabs;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -14,6 +16,8 @@ public class Tradeworks {
         TradeworksBlocks.register();
         TradeworksBlockEntityTypes.register();
         TradeworksCreativeModeTabs.register(eventBus);
+        eventBus.addListener(EventPriority.HIGHEST, TradeworksDatagen::gatherDataHighPriority);
     }
+
 
 }

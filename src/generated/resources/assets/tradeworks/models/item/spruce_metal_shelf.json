@@ -1,0 +1,6 @@
+{
+  "parent": "tradeworks:block/metal_shelf/top",
+  "textures": {
+    "0": "tradeworks:block/shelf/spruce"
+  }
+}

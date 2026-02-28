@@ -10,6 +10,17 @@
     "tradeworks:crimson_shelf",
     "tradeworks:warped_shelf",
     "tradeworks:mangrove_shelf",
-    "tradeworks:bamboo_shelf"
+    "tradeworks:bamboo_shelf",
+    "tradeworks:oak_metal_shelf",
+    "tradeworks:spruce_metal_shelf",
+    "tradeworks:birch_metal_shelf",
+    "tradeworks:acacia_metal_shelf",
+    "tradeworks:cherry_metal_shelf",
+    "tradeworks:jungle_metal_shelf",
+    "tradeworks:dark_oak_metal_shelf",
+    "tradeworks:crimson_metal_shelf",
+    "tradeworks:warped_metal_shelf",
+    "tradeworks:mangrove_metal_shelf",
+    "tradeworks:bamboo_metal_shelf"
   ]
 }

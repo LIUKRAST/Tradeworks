@@ -23,10 +23,17 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
+import org.jetbrains.annotations.ApiStatus;
 
 public class TWBuilderTransformers {
 
+    @ApiStatus.Internal
     public static <B extends Block, P> NonNullUnaryOperator<BlockBuilder<B, P>> shelf(String name, NonNullSupplier<? extends Block> initialProps) {
+        return shelf(name, initialProps, "shelf", "solid");
+    }
+
+    @ApiStatus.Internal
+    public static <B extends Block, P> NonNullUnaryOperator<BlockBuilder<B, P>> shelf(String name, NonNullSupplier<? extends Block> initialProps, String path, String renderType) {
         return b -> {
             TagKey<Block> soundTag = BlockTags.INSIDE_STEP_SOUND_BLOCKS;
 
@@ -35,15 +42,15 @@ public class TWBuilderTransformers {
                             .forAllStatesExcept(state -> {
                                 var top = state.getValue(ShelfBlock.TOP);
                                 var axis = state.getValue(ShelfBlock.HORIZONTAL_AXIS);
-                                return new ConfiguredModel[]{ConfiguredModel.builder().modelFile(p.models().withExistingParent(name + "_shelf", p.modLoc("block/shelf/" + (top ? "top" : "bottom")))
-                                        .texture("0", p.modLoc("block/shelf/" + name))).rotationY(axis == Direction.Axis.X ? 0 : 90).buildLast()};
+                                return new ConfiguredModel[]{ConfiguredModel.builder().modelFile(p.models().withExistingParent("block/" + path + "/" + name + (top ? "_top" : "_bottom"), p.modLoc("block/" + path + "/" + (top ? "top" : "bottom")))
+                                        .texture("0", p.modLoc("block/shelf/" + name)).renderType(renderType).texture("particle", p.modLoc("block/shelf/" + name))).rotationY(axis == Direction.Axis.Z ? 0 : 90).buildLast()};
                             }, TableClothBlock.HAS_BE))
-                    .onRegister(CreateRegistrate.blockModel(() -> TableClothModel::new))
+                    //.onRegister(CreateRegistrate.blockModel(() -> TableClothModel::new))
                     .tag(AllTags.AllBlockTags.TABLE_CLOTHS.tag, soundTag)
                     .onRegisterAfter(Registries.ITEM, v -> ItemDescription.useKey(v, "block.create.table_cloth"))
                     .item(TableClothBlockItem::new);
 
-            return item.model((c, p) -> p.withExistingParent(name + "_shelf", p.modLoc("block/shelf/top"))
+            return item.model((c, p) -> p.withExistingParent(name + "_" + path, p.modLoc("block/" + path + "/top"))
                             .texture("0", p.modLoc("block/shelf/" + name)))
                     .tag(AllTags.AllItemTags.TABLE_CLOTHS.tag)
                     .recipe((c, p) -> ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, c.get())

@@ -1,18 +1,18 @@
 {
   "variants": {
     "axis=x,top=false": {
-      "model": "tradeworks:block/warped_shelf"
+      "model": "tradeworks:block/shelf/warped_bottom",
+      "y": 90
     },
     "axis=x,top=true": {
-      "model": "tradeworks:block/warped_shelf"
+      "model": "tradeworks:block/shelf/warped_top",
+      "y": 90
     },
     "axis=z,top=false": {
-      "model": "tradeworks:block/warped_shelf",
-      "y": 90
+      "model": "tradeworks:block/shelf/warped_bottom"
     },
     "axis=z,top=true": {
-      "model": "tradeworks:block/warped_shelf",
-      "y": 90
+      "model": "tradeworks:block/shelf/warped_top"
     }
   }
 }
