@@ -1,5 +1,6 @@
 package net.liukrast.block;
 
+import com.simibubi.create.content.logistics.tableCloth.TableClothBlock;
 import com.simibubi.create.content.logistics.tableCloth.TableClothBlockEntity;
 import net.createmod.catnip.math.VecHelper;
 import net.createmod.catnip.placement.IPlacementHelper;
@@ -169,6 +170,14 @@ public class ShelfBlock extends TableClothBlockImpl {
         return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
     }
 
+    public boolean shouldRotate(TableClothBlockEntity be, BlockState state) {
+        return false;
+    }
+
+    public Vec3 test() {
+        return new Vec3(-1, 1, -1);
+    }
+
     private static class PlacementHelper implements IPlacementHelper {
 
         @Override
@@ -211,13 +220,13 @@ public class ShelfBlock extends TableClothBlockImpl {
         };
     }
 
-    public Vec3 getValueBox(TableClothBlockEntity be, BlockState state) {
-        float x = be.getItemsForRender().size() == 3 ? 4 : 0;
-        Vec3 v = !state.getValue(ShelfBlock.TOP) ? VecHelper.voxelSpace(8 + x, 2.75, 13.25) : VecHelper.voxelSpace(12, 12, 14.75);
-        return VecHelper.rotateCentered(v, -be.facing.toYRot(), Direction.Axis.Y);
+    public Vec3 getOffset(TableClothBlockEntity be, BlockState state) {
+        return VecHelper.voxelSpace(0,0,0);
     }
 
-    public boolean shouldRenderSide(TableClothBlockEntity be) {
-        return be.getBlockState().getValue(TOP);
-    }
+    /*public Vec3 getValueBox(TableClothBlockEntity be, BlockState state) {
+        float x = be.getItemsForRender().size() == 3 ? 4 : 0;
+        Vec3 v = !state.getValue(ShelfBlock.TOP) ?  : VecHelper.voxelSpace(12, 12, 14.75);
+        return VecHelper.rotateCentered(v, -be.facing.toYRot(), Direction.Axis.Y);
+    }*/
 }

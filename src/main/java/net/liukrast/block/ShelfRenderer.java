@@ -8,6 +8,7 @@ import com.simibubi.create.content.logistics.tableCloth.TableClothBlockEntity;
 import com.simibubi.create.foundation.blockEntity.renderer.SmartBlockEntityRenderer;
 import dev.engine_room.flywheel.lib.transform.TransformStack;
 import net.createmod.catnip.render.CachedBuffers;
+import net.liukrast.registry.TradeworksPartialModels;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -35,24 +36,14 @@ public class ShelfRenderer extends SmartBlockEntityRenderer<TableClothBlockEntit
         var block = (ShelfBlock)(blockEntity.getBlockState().getBlock());
 
         if (blockEntity.isShop()) {
-            if(!block.shouldRenderSide(blockEntity)) {
-                float x = stacks.size() == 3 ? -4/16f : 0;
-                CachedBuffers
-                        .partial(AllPartialModels.TABLE_CLOTH_PRICE_TOP, blockEntity.getBlockState())
-                        .rotateCentered(rotationInRadians, Direction.UP)
-                        .translate(x, 2/16f, 2/16f)
-                        .light(light)
-                        .overlay(overlay)
-                        .renderInto(ms, buffer.getBuffer(RenderType.cutout()));
-            } else {
-                CachedBuffers
-                        .partial(AllPartialModels.TABLE_CLOTH_PRICE_SIDE, blockEntity.getBlockState())
-                        .rotateCentered(rotationInRadians, Direction.UP)
-                        .translate(0, 14.74/16f, 2/16f)
-                        .light(light)
-                        .overlay(overlay)
-                        .renderInto(ms, buffer.getBuffer(RenderType.cutout()));
-            }
+
+            CachedBuffers
+                    .partial(TradeworksPartialModels.SHELF_PRICE_TAG, blockEntity.getBlockState())
+                    .rotateCentered(rotationInRadians, Direction.UP)
+                    .translate(block.getOffset(blockEntity, blockEntity.getBlockState()))
+                    .light(light)
+                    .overlay(overlay)
+                    .renderInto(ms, buffer.getBuffer(RenderType.cutout()));
         }
 
         ms.pushPose();

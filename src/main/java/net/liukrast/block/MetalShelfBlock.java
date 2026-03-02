@@ -1,6 +1,7 @@
 package net.liukrast.block;
 
 import com.simibubi.create.content.logistics.tableCloth.TableClothBlockEntity;
+import net.createmod.catnip.math.VecHelper;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.lwjgl.system.NonnullDefault;
@@ -12,12 +13,7 @@ public class MetalShelfBlock extends ShelfBlock {
     }
 
     @Override
-    public Vec3 getValueBox(TableClothBlockEntity be, BlockState state) {
-        return super.getValueBox(be, state);
-    }
-
-    @Override
-    public boolean shouldRenderSide(TableClothBlockEntity be) {
-        return false;
+    public Vec3 getOffset(TableClothBlockEntity be, BlockState state) {
+        return VecHelper.voxelSpace(0,-6,-1);
     }
 }
