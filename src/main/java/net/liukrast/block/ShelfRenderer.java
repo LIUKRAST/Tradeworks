@@ -1,8 +1,6 @@
 package net.liukrast.block;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
-import com.simibubi.create.AllPartialModels;
 import com.simibubi.create.content.logistics.depot.DepotRenderer;
 import com.simibubi.create.content.logistics.tableCloth.TableClothBlockEntity;
 import com.simibubi.create.foundation.blockEntity.renderer.SmartBlockEntityRenderer;
@@ -41,7 +39,7 @@ public class ShelfRenderer extends SmartBlockEntityRenderer<TableClothBlockEntit
             CachedBuffers
                     .partial(TradeworksPartialModels.SHELF_PRICE_TAG, blockEntity.getBlockState())
                     .rotateCentered(rotationInRadians, Direction.UP)
-                    .translate(block.getOffset(blockEntity, blockEntity.getBlockState()))
+                    .translate(block.getPriceOffset(blockEntity, blockEntity.getBlockState()))
                     .light(light)
                     .overlay(overlay)
                     .renderInto(ms, buffer.getBuffer(RenderType.cutout()));
@@ -50,15 +48,18 @@ public class ShelfRenderer extends SmartBlockEntityRenderer<TableClothBlockEntit
         ms.pushPose();
         TransformStack.of(ms)
                 .rotateCentered(rotationInRadians, Direction.UP);
+        var axis = block.getRotatingItemsAxis();
+        var off = block.getItemsOffset(blockEntity, blockEntity.getBlockState());
+        ms.translate(off.x, off.y, off.z);
         for (int i = 0; i < stacks.size(); i++) {
             ItemStack entry = stacks.get(i);
             ms.pushPose();
             ms.translate(0.5f, 5 / 16f, 0.5f);
 
             if (stacks.size() > 1) {
-                ms.mulPose(Axis.YP.rotationDegrees(i * (360f / stacks.size()) + 45f));
-                ms.translate(0, i % 2 == 0 ? -0.005 : 0, 5 / 16f);
-                ms.mulPose(Axis.YP.rotationDegrees(-i * (360f / stacks.size()) - 45f));
+                ms.mulPose(axis.rotationDegrees(i * (360f / stacks.size()) + 45f));
+                ms.translate(5 / 16f, i % 2 == 0 ? -0.005 : 0, 5 / 16f);
+                ms.mulPose(axis.rotationDegrees(-i * (360f / stacks.size()) - 45f));
             }
 
             BakedModel bakedModel = Minecraft.getInstance()

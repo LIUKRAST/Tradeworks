@@ -13,7 +13,7 @@ public class MetalShelfBlock extends ShelfBlock {
     }
 
     @Override
-    public Vec3 getOffset(TableClothBlockEntity be, BlockState state) {
+    public Vec3 getPriceOffset(TableClothBlockEntity be, BlockState state) {
         return VecHelper.voxelSpace(0,-6,-1);
     }
 }

@@ -1,5 +1,6 @@
 package net.liukrast.block;
 
+import com.mojang.math.Axis;
 import com.simibubi.create.content.logistics.tableCloth.TableClothBlockEntity;
 import net.createmod.catnip.math.VecHelper;
 import net.createmod.catnip.placement.IPlacementHelper;
@@ -189,8 +190,18 @@ public class ShelfBlock extends TableClothBlockImpl implements TableClothPlaceme
     }
 
     @Override
-    public Vec3 getOffset(TableClothBlockEntity be, BlockState state) {
-        return VecHelper.voxelSpace(0,0,0);
+    public Vec3 getPriceOffset(TableClothBlockEntity be, BlockState state) {
+        return Vec3.ZERO;
+    }
+
+    @Override
+    public Vec3 getItemsOffset(TableClothBlockEntity blockEntity, BlockState blockState) {
+        return Vec3.ZERO;
+    }
+
+    @Override
+    public Axis getRotatingItemsAxis() {
+        return Axis.YP;
     }
 
     /*public Vec3 getValueBox(TableClothBlockEntity be, BlockState state) {
