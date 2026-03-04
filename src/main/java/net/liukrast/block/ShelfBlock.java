@@ -1,11 +1,11 @@
 package net.liukrast.block;
 
-import com.simibubi.create.content.logistics.tableCloth.TableClothBlock;
 import com.simibubi.create.content.logistics.tableCloth.TableClothBlockEntity;
 import net.createmod.catnip.math.VecHelper;
 import net.createmod.catnip.placement.IPlacementHelper;
 import net.createmod.catnip.placement.PlacementHelpers;
 import net.createmod.catnip.placement.PlacementOffset;
+import net.liukrast.TableClothPlacement;
 import net.liukrast.registry.TradeworksBlockEntityTypes;
 import net.liukrast.registry.TradeworksBlocks;
 import net.minecraft.core.BlockPos;
@@ -39,7 +39,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 @NonnullDefault
-public class ShelfBlock extends TableClothBlockImpl {
+public class ShelfBlock extends TableClothBlockImpl implements TableClothPlacement {
     private static final VoxelShape X_TOP = Shapes.or(
             Block.box(14, 0, 1, 16, 14, 15),
             Block.box(0, 0, 1, 2, 14, 15),
@@ -52,7 +52,7 @@ public class ShelfBlock extends TableClothBlockImpl {
             Block.box(2, 1, 1, 14, 3, 15)
     );
 
-    private static VoxelShape rotateY(VoxelShape shape) {
+    static VoxelShape rotateY(VoxelShape shape) {
 
         VoxelShape[] buffer = {shape, Shapes.empty()};
         int numRotations = 1 % 4;
@@ -85,42 +85,12 @@ public class ShelfBlock extends TableClothBlockImpl {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (hitResult.getDirection() == Direction.DOWN)
-            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-        if (level.isClientSide)
-            return ItemInteractionResult.SUCCESS;
-
-        ItemStack heldItem = player.getItemInHand(hand);
-        boolean shiftKeyDown = player.isShiftKeyDown();
-        if (!player.mayBuild())
-            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-
-        IPlacementHelper placementHelper = PlacementHelpers.get(placementHelperId);
-        if (placementHelper.matchesItem(heldItem)) {
-            if (shiftKeyDown)
-                return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-            placementHelper.getOffset(player, level, state, pos, hitResult)
-                    .placeInWorld(level, (BlockItem) heldItem.getItem(), player, hand, hitResult);
-            return ItemInteractionResult.SUCCESS;
-        }
-
-        if ((shiftKeyDown || heldItem.isEmpty()) && !state.getValue(HAS_BE))
-            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-
-        if (!level.isClientSide() && !state.getValue(HAS_BE))
-            level.setBlockAndUpdate(pos, state.cycle(HAS_BE));
-
-        return onBlockEntityUseItemOn(level, pos, dcbe -> dcbe.use(player, hitResult));
-    }
-
-    @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockPos pos = context.getClickedPos();
         Level level = context.getLevel();
 
         var state = level.getBlockState(pos.above());
-        var axis = context.getHorizontalDirection().getOpposite().getAxis();
+        var axis = context.getHorizontalDirection().getAxis();
 
         boolean isTop = !state.is(this) || !state.getValue(HORIZONTAL_AXIS).equals(axis);
         return defaultBlockState().setValue(HORIZONTAL_AXIS, axis).setValue(TOP, isTop);
@@ -170,12 +140,9 @@ public class ShelfBlock extends TableClothBlockImpl {
         return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
     }
 
-    public boolean shouldRotate(TableClothBlockEntity be, BlockState state) {
-        return false;
-    }
-
-    public Vec3 test() {
-        return new Vec3(-1, 1, -1);
+    @Override
+    public int getPlacementId() {
+        return placementHelperId;
     }
 
     private static class PlacementHelper implements IPlacementHelper {
@@ -193,10 +160,11 @@ public class ShelfBlock extends TableClothBlockImpl {
         @Override
         public PlacementOffset getOffset(Player player, Level world, BlockState state, BlockPos pos,
                                          BlockHitResult ray) {
-            List<Direction> directions = IPlacementHelper.orderedByDistanceOnlyAxis(pos, ray.getLocation(), Direction.Axis.Y,
+            var axis = state.getValue(HORIZONTAL_AXIS);
+            List<Direction> directions = IPlacementHelper.orderedByDistanceExceptAxis(pos, ray.getLocation(), axis,
                     dir -> world.getBlockState(pos.relative(dir))
                             .canBeReplaced());
-            var axis = state.getValue(HORIZONTAL_AXIS);
+
 
             if (directions.isEmpty())
                 return PlacementOffset.fail();
@@ -220,6 +188,7 @@ public class ShelfBlock extends TableClothBlockImpl {
         };
     }
 
+    @Override
     public Vec3 getOffset(TableClothBlockEntity be, BlockState state) {
         return VecHelper.voxelSpace(0,0,0);
     }

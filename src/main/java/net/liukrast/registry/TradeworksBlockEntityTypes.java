@@ -26,6 +26,7 @@ public class TradeworksBlockEntityTypes {
             REGISTRATE.blockEntity("shelf", TableClothBlockEntity::new)
                     .validBlocks(toArray(TradeworksBlocks.SHELVES))
                     .validBlocks(toArray(TradeworksBlocks.METAL_SHELVES))
+                    .validBlocks(toArray(TradeworksBlocks.SIDE_SHELVES))
                     .renderer(() -> ShelfRenderer::new)
                     .register();
 

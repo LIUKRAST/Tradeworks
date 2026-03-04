@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
 	"TableClothBlockMixin",
+	"TableClothBlockMixin$PlacementHelperMixin",
 	"TableClothFilterSlotMixin"
   ],
   "client": [

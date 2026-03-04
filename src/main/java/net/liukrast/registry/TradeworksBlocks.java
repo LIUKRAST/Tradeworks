@@ -7,6 +7,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import net.liukrast.TradeworksConstants;
 import net.liukrast.block.MetalShelfBlock;
 import net.liukrast.block.ShelfBlock;
+import net.liukrast.block.SideShelfBlock;
 import net.liukrast.block.TableClothBlockImpl;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -42,6 +43,25 @@ public class TradeworksBlocks {
     public static final List<BlockEntry<MetalShelfBlock>> METAL_SHELVES = WoodType.values()
             .map(type -> REGISTRATE.block(type.name() + "_metal_shelf", p -> new MetalShelfBlock(p, type.name()))
                     .transform(TWBuilderTransformers.shelf(type.name(), () -> Blocks.OAK_PLANKS, "metal_shelf", "cutout"))
+                    //TODO: .properties(p -> p.mapColor())
+                    /*.recipe((c, p) -> {
+                        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, c.get(), 2)
+                                .requires(DyeHelper.getWoolOfDye(colour))
+                                .requires(AllItems.ANDESITE_ALLOY)
+                                .unlockedBy("has_wool", RegistrateRecipeProvider.has(ItemTags.WOOL))
+                                .save(p, Create.asResource("crafting/logistics/" + c.getName()));
+                        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, c.get())
+                                .requires(colour.getTag())
+                                .requires(AllTags.AllItemTags.DYED_TABLE_CLOTHS.tag)
+                                .unlockedBy("has_postbox", RegistrateRecipeProvider.has(AllTags.AllItemTags.DYED_TABLE_CLOTHS.tag))
+                                .save(p, Create.asResource("crafting/logistics/" + c.getName() + "_from_other_table_cloth"));
+                    })*/
+                    .register()
+            ).toList();
+
+    public static final List<BlockEntry<SideShelfBlock>> SIDE_SHELVES = WoodType.values()
+            .map(type -> REGISTRATE.block(type.name() + "_side_shelf", p -> new SideShelfBlock(p, type.name()))
+                    .transform(TWBuilderTransformers.sideShelf(type.name(), () -> Blocks.OAK_PLANKS, "side_shelf", "cutout"))
                     //TODO: .properties(p -> p.mapColor())
                     /*.recipe((c, p) -> {
                         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, c.get(), 2)

@@ -23,6 +23,7 @@ public class TradeworksCreativeModeTabs {
                         TradeworksBlocks.INVERTED_TABLE_CLOTHS.forEach(out::accept);
                         TradeworksBlocks.SHELVES.forEach(out::accept);
                         TradeworksBlocks.METAL_SHELVES.forEach(out::accept);
+                        TradeworksBlocks.SIDE_SHELVES.forEach(out::accept);
                     })
                     .build());
 

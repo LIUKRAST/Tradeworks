@@ -13,6 +13,7 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
 import net.liukrast.block.ShelfBlock;
+import net.liukrast.block.SideShelfBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
@@ -51,6 +52,36 @@ public class TWBuilderTransformers {
                     .item(TableClothBlockItem::new);
 
             return item.model((c, p) -> p.withExistingParent(name + "_" + path, p.modLoc("block/" + path + "/top"))
+                            .texture("0", p.modLoc("block/shelf/" + name)))
+                    .tag(AllTags.AllItemTags.TABLE_CLOTHS.tag)
+                    .recipe((c, p) -> ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, c.get())
+                            .requires(c.get())
+                            .unlockedBy("has_" + c.getName(), RegistrateRecipeProvider.has(c.get()))
+                            .save(p, Create.asResource("crafting/logistics/" + c.getName() + "_clear")))
+                    .build();
+        };
+    }
+
+    @ApiStatus.Internal
+    public static <B extends Block, P> NonNullUnaryOperator<BlockBuilder<B, P>> sideShelf(String name, NonNullSupplier<? extends Block> initialProps, String path, String renderType) {
+        return b -> {
+            TagKey<Block> soundTag = BlockTags.INSIDE_STEP_SOUND_BLOCKS;
+
+            ItemBuilder<TableClothBlockItem, BlockBuilder<B, P>> item = b.initialProperties(initialProps)
+                    .blockstate((c, p) -> p.getVariantBuilder(c.get())
+                            .forAllStatesExcept(state -> {
+                                var face = state.getValue(SideShelfBlock.HORIZONTAL_FACING);
+                                return new ConfiguredModel[]{ConfiguredModel.builder().modelFile(p.models().withExistingParent("block/" + path + "/" + name, p.modLoc("block/" + path))
+                                        .texture("0", p.modLoc("block/shelf/" + name)).renderType(renderType).texture("particle", p.modLoc("block/shelf/" + name)))
+                                        .rotationY((int) ((face.toYRot() + 180)%360))
+                                        .buildLast()};
+                            }, TableClothBlock.HAS_BE))
+                    //.onRegister(CreateRegistrate.blockModel(() -> TableClothModel::new))
+                    .tag(AllTags.AllBlockTags.TABLE_CLOTHS.tag, soundTag)
+                    .onRegisterAfter(Registries.ITEM, v -> ItemDescription.useKey(v, "block.create.table_cloth"))
+                    .item(TableClothBlockItem::new);
+
+            return item.model((c, p) -> p.withExistingParent(name + "_" + path, p.modLoc("block/" + path))
                             .texture("0", p.modLoc("block/shelf/" + name)))
                     .tag(AllTags.AllItemTags.TABLE_CLOTHS.tag)
                     .recipe((c, p) -> ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, c.get())

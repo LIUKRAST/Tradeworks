@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tradeworks:crimson_side_shelf"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tradeworks:crimson_side_shelf"
+  }
+}

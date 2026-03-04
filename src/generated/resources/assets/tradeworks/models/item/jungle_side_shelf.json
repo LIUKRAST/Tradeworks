@@ -1,0 +1,6 @@
+{
+  "parent": "tradeworks:block/side_shelf",
+  "textures": {
+    "0": "tradeworks:block/shelf/jungle"
+  }
+}

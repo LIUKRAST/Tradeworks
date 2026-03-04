@@ -1,12 +1,11 @@
 package net.liukrast.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.simibubi.create.content.logistics.tableCloth.TableClothBlockEntity;
 import net.createmod.catnip.math.VecHelper;
+import net.liukrast.TableClothPlacement;
 import net.liukrast.block.ShelfBlock;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.objectweb.asm.Opcodes;
@@ -31,13 +30,13 @@ public class TableClothFilterSlotMixin {
             name = "v"
     )
     private Vec3 getLocalOffset(Vec3 value, @Local(argsOnly = true) BlockState state) {
-        if (!(state.getBlock() instanceof ShelfBlock sb)) return value;
-        return tradeworks$DEFAULT.add(sb.getOffset(be, state).multiply(sb.test()));
+        if (!(state.getBlock() instanceof TableClothPlacement sb)) return value;
+        return tradeworks$DEFAULT.add(sb.getOffset(be, state).multiply(new Vec3(-1, 1, -1)));
     }
 
     @ModifyExpressionValue(method = "rotate", at = @At(value = "FIELD", target = "Lcom/simibubi/create/content/logistics/tableCloth/TableClothBlockEntity;sideOccluded:Z", opcode = Opcodes.GETFIELD))
     private boolean rotate(boolean original, @Local(argsOnly = true) BlockState state) {
-        if (!(state.getBlock() instanceof ShelfBlock sb)) return original;
+        if (!(state.getBlock() instanceof TableClothPlacement sb)) return original;
         return sb.shouldRotate(be, state);
     }
 }

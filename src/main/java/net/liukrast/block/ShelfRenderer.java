@@ -8,6 +8,7 @@ import com.simibubi.create.content.logistics.tableCloth.TableClothBlockEntity;
 import com.simibubi.create.foundation.blockEntity.renderer.SmartBlockEntityRenderer;
 import dev.engine_room.flywheel.lib.transform.TransformStack;
 import net.createmod.catnip.render.CachedBuffers;
+import net.liukrast.TableClothPlacement;
 import net.liukrast.registry.TradeworksPartialModels;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -33,7 +34,7 @@ public class ShelfRenderer extends SmartBlockEntityRenderer<TableClothBlockEntit
         super.renderSafe(blockEntity, partialTicks, ms, buffer, light, overlay);
         List<ItemStack> stacks = blockEntity.getItemsForRender();
         float rotationInRadians = Mth.DEG_TO_RAD * (180 - blockEntity.facing.toYRot());
-        var block = (ShelfBlock)(blockEntity.getBlockState().getBlock());
+        var block = (TableClothPlacement)(blockEntity.getBlockState().getBlock());
 
         if (blockEntity.isShop()) {
 
