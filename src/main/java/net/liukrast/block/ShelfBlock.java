@@ -2,7 +2,6 @@ package net.liukrast.block;
 
 import com.mojang.math.Axis;
 import com.simibubi.create.content.logistics.tableCloth.TableClothBlockEntity;
-import net.createmod.catnip.math.VecHelper;
 import net.createmod.catnip.placement.IPlacementHelper;
 import net.createmod.catnip.placement.PlacementHelpers;
 import net.createmod.catnip.placement.PlacementOffset;
@@ -11,10 +10,7 @@ import net.liukrast.registry.TradeworksBlockEntityTypes;
 import net.liukrast.registry.TradeworksBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -191,11 +187,6 @@ public class ShelfBlock extends TableClothBlockImpl implements TableClothPlaceme
 
     @Override
     public Vec3 getPriceOffset(TableClothBlockEntity be, BlockState state) {
-        return Vec3.ZERO;
-    }
-
-    @Override
-    public Vec3 getItemsOffset(TableClothBlockEntity blockEntity, BlockState blockState) {
         return Vec3.ZERO;
     }
 

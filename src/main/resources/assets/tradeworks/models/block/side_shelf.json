@@ -3,9 +3,7 @@
 	"credit": "Made by LiukRast",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "tradeworks:block/shelf/oak",
-		"1": "tradeworks:block/shelf/metal",
-		"particle": "tradeworks:block/shelf/oak"
+		"1": "tradeworks:block/shelf/metal"
 	},
 	"elements": [
 		{
@@ -61,8 +59,8 @@
 			}
 		},
 		{
-			"from": [16, 10, 10],
-			"to": [16, 16, 14],
+			"from": [15.99, 10, 10],
+			"to": [15.99, 16, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [0, 2, 10]},
 			"faces": {
 				"east": {"uv": [6, 0, 8, 3], "texture": "#1", "cullface": "east"},
@@ -72,8 +70,8 @@
 			}
 		},
 		{
-			"from": [0, 10, 10],
-			"to": [0, 16, 14],
+			"from": [0.01, 10, 10],
+			"to": [0.01, 16, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [-16, 2, 10]},
 			"faces": {
 				"east": {"uv": [6, 0, 8, 3], "texture": "#1"},
@@ -83,8 +81,8 @@
 			}
 		},
 		{
-			"from": [0, 2, 10],
-			"to": [0, 8, 14],
+			"from": [0.01, 2, 10],
+			"to": [0.01, 8, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [-16, -6, 10]},
 			"faces": {
 				"east": {"uv": [6, 8, 8, 11], "texture": "#1"},
@@ -94,8 +92,8 @@
 			}
 		},
 		{
-			"from": [16, 2, 10],
-			"to": [16, 8, 14],
+			"from": [15.99, 2, 10],
+			"to": [15.99, 8, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [0, -6, 10]},
 			"faces": {
 				"east": {"uv": [6, 8, 8, 11], "texture": "#1", "cullface": "east"},

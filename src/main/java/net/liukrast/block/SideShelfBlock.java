@@ -86,7 +86,7 @@ public class SideShelfBlock extends TableClothBlock implements TableClothPlaceme
 
     @Override
     public VoxelShape getOcclusionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-        return pState.getShape(pLevel, pPos);
+        return Shapes.empty();
     }
 
     @Override
@@ -144,11 +144,6 @@ public class SideShelfBlock extends TableClothBlock implements TableClothPlaceme
     @Override
     public Vec3 getPriceOffset(TableClothBlockEntity blockEntity, BlockState blockState) {
         return VecHelper.voxelSpace(0,2,9);
-    }
-
-    @Override
-    public Vec3 getItemsOffset(TableClothBlockEntity blockEntity, BlockState blockState) {
-        return VecHelper.voxelSpace(0, 2, 0);
     }
 
     @Override

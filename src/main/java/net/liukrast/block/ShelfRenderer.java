@@ -49,30 +49,49 @@ public class ShelfRenderer extends SmartBlockEntityRenderer<TableClothBlockEntit
         TransformStack.of(ms)
                 .rotateCentered(rotationInRadians, Direction.UP);
         var axis = block.getRotatingItemsAxis();
-        var off = block.getItemsOffset(blockEntity, blockEntity.getBlockState());
-        ms.translate(off.x, off.y, off.z);
-        for (int i = 0; i < stacks.size(); i++) {
-            ItemStack entry = stacks.get(i);
-            ms.pushPose();
-            ms.translate(0.5f, 5 / 16f, 0.5f);
+        if(block instanceof ShelfBlock) {
+            for (int i = 0; i < stacks.size(); i++) {
+                ItemStack entry = stacks.get(i);
+                ms.pushPose();
+                ms.translate(0.5f, 5 / 16f, 0.5f);
 
-            if (stacks.size() > 1) {
-                ms.mulPose(axis.rotationDegrees(i * (360f / stacks.size()) + 45f));
-                ms.translate(5 / 16f, i % 2 == 0 ? -0.005 : 0, 5 / 16f);
-                ms.mulPose(axis.rotationDegrees(-i * (360f / stacks.size()) - 45f));
+                if (stacks.size() > 1) {
+                    ms.mulPose(axis.rotationDegrees(i * (360f / stacks.size()) + 45f));
+                    ms.translate(0, i % 2 == 0 ? -0.005 : 0, 5 / 16f);
+                    ms.mulPose(axis.rotationDegrees(-i * (360f / stacks.size()) - 45f));
+                }
+
+                BakedModel bakedModel = Minecraft.getInstance()
+                        .getItemRenderer()
+                        .getModel(entry, null, null, 0);
+                boolean blockItem = bakedModel.isGui3d();
+                if (!blockItem)
+                    TransformStack.of(ms)
+                            .rotate(-rotationInRadians + Mth.PI, Direction.UP);
+
+                DepotRenderer.renderItem(blockEntity.getLevel(), ms, buffer, light, OverlayTexture.NO_OVERLAY, entry, 0,
+                        null, Vec3.atCenterOf(blockEntity.getBlockPos()), true);
+                ms.popPose();
             }
+        } else {
+            for (int i = 0; i < stacks.size(); i++) {
+                ItemStack entry = stacks.get(i);
+                ms.pushPose();
+                ms.translate(12/16f, 3.8 / 16f, 11/16f);
+                ms.translate(-(i%2)/2f, (i>>1)/2f, i == 3 ? 2.2/16f : 0);
 
-            BakedModel bakedModel = Minecraft.getInstance()
-                    .getItemRenderer()
-                    .getModel(entry, null, null, 0);
-            boolean blockItem = bakedModel.isGui3d();
-            if (!blockItem)
-                TransformStack.of(ms)
-                        .rotate(-rotationInRadians + Mth.PI, Direction.UP);
+                BakedModel bakedModel = Minecraft.getInstance()
+                        .getItemRenderer()
+                        .getModel(entry, null, null, 0);
+                boolean blockItem = bakedModel.isGui3d();
+                if (!blockItem)
+                    TransformStack.of(ms)
+                            .rotate(-rotationInRadians + Mth.PI, Direction.UP);
 
-            DepotRenderer.renderItem(blockEntity.getLevel(), ms, buffer, light, OverlayTexture.NO_OVERLAY, entry, 0,
-                    null, Vec3.atCenterOf(blockEntity.getBlockPos()), true);
-            ms.popPose();
+                DepotRenderer.renderItem(blockEntity.getLevel(), ms, buffer, light, OverlayTexture.NO_OVERLAY, entry, 0,
+                        null, Vec3.atCenterOf(blockEntity.getBlockPos()), true);
+                ms.popPose();
+            }
         }
 
         ms.popPose();

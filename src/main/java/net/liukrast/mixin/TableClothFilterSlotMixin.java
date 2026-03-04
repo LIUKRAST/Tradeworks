@@ -35,7 +35,7 @@ public class TableClothFilterSlotMixin {
 
     @ModifyExpressionValue(method = "rotate", at = @At(value = "FIELD", target = "Lcom/simibubi/create/content/logistics/tableCloth/TableClothBlockEntity;sideOccluded:Z", opcode = Opcodes.GETFIELD))
     private boolean rotate(boolean original, @Local(argsOnly = true) BlockState state) {
-        if (!(state.getBlock() instanceof TableClothPlacement sb)) return original;
-        return sb.shouldRotate(be, state);
+        if(state.getBlock() instanceof TableClothPlacement) return false;
+        return original;
     }
 }
