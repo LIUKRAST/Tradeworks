@@ -135,8 +135,8 @@ dependencies {
 
     implementation fileTree(dir: "${rootDir}/libs", include: ['*.jar'])
 
-    runtimeOnly(compileOnly "curse.maven:every-compat-628539:7698404")
-    runtimeOnly(compileOnly "curse.maven:selene-499980:7708176")
+    compileOnly("curse.maven:every-compat-628539:7698404")
+    compileOnly("curse.maven:selene-499980:7708176")
 
     runtimeOnly "curse.maven:natures-spirit-1044992:6962784"
     runtimeOnly "curse.maven:terrablender-neoforge-940057:6054947"
