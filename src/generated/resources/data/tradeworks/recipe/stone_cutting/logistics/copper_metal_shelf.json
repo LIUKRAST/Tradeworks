@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "create:copper_casing"
+  },
+  "result": {
+    "count": 1,
+    "id": "tradeworks:copper_metal_shelf"
+  }
+}

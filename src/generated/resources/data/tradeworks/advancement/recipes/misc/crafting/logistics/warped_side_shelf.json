@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tradeworks:crafting/logistics/warped_side_shelf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_side_shelf": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tradeworks:warped_side_shelf"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_warped_side_shelf"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tradeworks:crafting/logistics/warped_side_shelf"
+    ]
+  }
+}

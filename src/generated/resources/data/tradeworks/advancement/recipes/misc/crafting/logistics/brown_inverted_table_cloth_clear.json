@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_brown_inverted_table_cloth": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tradeworks:brown_inverted_table_cloth"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tradeworks:crafting/logistics/brown_inverted_table_cloth_clear"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_brown_inverted_table_cloth"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tradeworks:crafting/logistics/brown_inverted_table_cloth_clear"
+    ]
+  }
+}

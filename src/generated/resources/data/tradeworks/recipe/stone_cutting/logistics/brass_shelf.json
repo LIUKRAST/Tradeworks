@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "create:brass_casing"
+  },
+  "result": {
+    "count": 1,
+    "id": "tradeworks:brass_shelf"
+  }
+}

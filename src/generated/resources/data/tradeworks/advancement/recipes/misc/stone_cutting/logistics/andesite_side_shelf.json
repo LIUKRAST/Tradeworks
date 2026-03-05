@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_andesite_side_shelf": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tradeworks:andesite_side_shelf"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tradeworks:stone_cutting/logistics/andesite_side_shelf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_andesite_side_shelf"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tradeworks:stone_cutting/logistics/andesite_side_shelf"
+    ]
+  }
+}

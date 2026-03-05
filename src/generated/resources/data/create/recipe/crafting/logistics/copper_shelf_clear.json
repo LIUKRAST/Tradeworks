@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tradeworks:copper_shelf"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tradeworks:copper_shelf"
+  }
+}

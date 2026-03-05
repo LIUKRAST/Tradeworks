@@ -1,3 +1,6 @@
 {
-  "itemGroup.tradeworks": "Create: Tradeworks"
+  "itemGroup.tradeworks": "Create: Tradeworks",
+  "block_type.tradeworks.shelf": "%s Shelf",
+  "block_type.tradeworks.metal_shelf": "%s Metal Shelf",
+  "block_type.tradeworks.side_shelf": "%s Side Shelf"
 }

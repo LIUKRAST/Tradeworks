@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:chain"
+    },
+    "B": {
+      "item": "minecraft:birch_stairs"
+    },
+    "C": {
+      "item": "create:andesite_alloy"
+    }
+  },
+  "pattern": [
+    " C ",
+    "ABA",
+    "ABA"
+  ],
+  "result": {
+    "count": 2,
+    "id": "tradeworks:birch_side_shelf"
+  }
+}
