@@ -70,6 +70,7 @@ public class TradeworksBlocks {
 
     public static final List<BlockEntry<MetalShelfBlock>> METAL_SHELVES = Arrays.stream(WOOD_TYPES)
             .map(type -> REGISTRATE.block(type.name() + "_metal_shelf", p -> new MetalShelfBlock(p, type.name()))
+                    .properties(p -> p.noOcclusion().isSuffocating((blockState, blockGetter, blockPos) -> false).isViewBlocking((blockState, blockGetter, blockPos) -> false))
                     .transform(TWBuilderTransformers.shelf(type.name(), () -> Blocks.OAK_PLANKS, "metal_shelf", "cutout"))
                     .tag(BlockTags.MINEABLE_WITH_AXE)
                     .recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.MISC, c.get(), 2)

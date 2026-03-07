@@ -1,35 +1,36 @@
-package net.liukrast.tradeworks.compat.woodgood;
+package net.liukrast.tradeworks.compat;
 
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.logistics.tableCloth.TableClothBlockItem;
+import net.liukrast.compat.Compat;
 import net.liukrast.tradeworks.TradeworksConstants;
 import net.liukrast.tradeworks.block.MetalShelfBlock;
 import net.liukrast.tradeworks.block.ShelfBlock;
 import net.liukrast.tradeworks.block.SideShelfBlock;
 import net.liukrast.tradeworks.registry.TradeworksBlocks;
+import net.mehvahdjukaar.every_compat.api.EveryCompatAPI;
 import net.mehvahdjukaar.every_compat.api.PaletteStrategies;
 import net.mehvahdjukaar.every_compat.api.SimpleEntrySet;
 import net.mehvahdjukaar.every_compat.api.SimpleModule;
-import net.mehvahdjukaar.moonlight.api.resources.pack.ResourceGenTask;
 import net.mehvahdjukaar.moonlight.api.set.wood.VanillaWoodTypes;
 import net.mehvahdjukaar.moonlight.api.set.wood.WoodType;
 import net.mehvahdjukaar.moonlight.api.util.Utils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 
-import java.util.function.Consumer;
-
 import static net.mehvahdjukaar.moonlight.api.set.wood.VanillaWoodChildKeys.*;
 
-public class WoodGoodModule extends SimpleModule {
+@Compat("everycomp")
+public class EveryCompModule extends SimpleModule {
 
     public final SimpleEntrySet<WoodType, ShelfBlock> shelves;
     public final SimpleEntrySet<WoodType, MetalShelfBlock> metal_shelves;
     public final SimpleEntrySet<WoodType, SideShelfBlock> side_shelves;
 
     @SuppressWarnings("removal")
-    public WoodGoodModule() {
+    public EveryCompModule() {
         super(TradeworksConstants.MOD_ID, "tw", TradeworksConstants.MOD_ID);
+        EveryCompatAPI.registerModule(this);
 
 
         shelves = SimpleEntrySet.builder(WoodType.class, "shelf",
@@ -86,11 +87,5 @@ public class WoodGoodModule extends SimpleModule {
         this.addEntry(shelves);
         this.addEntry(metal_shelves);
         this.addEntry(side_shelves);
-    }
-
-
-    @Override
-    public void addDynamicServerResources(Consumer<ResourceGenTask> executor) {
-        super.addDynamicServerResources(executor);
     }
 }
