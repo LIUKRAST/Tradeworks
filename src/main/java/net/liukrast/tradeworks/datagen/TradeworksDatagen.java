@@ -22,7 +22,6 @@ public class TradeworksDatagen {
             BiConsumer<String, String> langConsumer = provider::add;
             provideDefaultLang("interface", langConsumer);
             provideDefaultLang("tooltips", langConsumer);
-            new TagLangGenerator(langConsumer).generate();
         });
     }
 

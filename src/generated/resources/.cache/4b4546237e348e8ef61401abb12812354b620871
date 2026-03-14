@@ -1,4 +1,4 @@
-// 1.21.1	2026-03-05T02:20:41.725615	Registrate Provider for tradeworks [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (enchantments), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.21.1	2026-03-14T01:16:18.2861909	Registrate Provider for tradeworks [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (enchantments), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 712ce45420c39fe8c87c8f8f3535d1575818e47b assets/tradeworks/blockstates/acacia_metal_shelf.json
 54507821a1650ca8ae94a48d5ce537364921b580 assets/tradeworks/blockstates/acacia_shelf.json
 ea9d8629b2ad9204bcafefd43eb46d95ac214345 assets/tradeworks/blockstates/acacia_side_shelf.json
@@ -57,8 +57,8 @@ e9fa665b8dfecb1fd3f3cc06b3e05f1434aba574 assets/tradeworks/blockstates/warped_me
 3a1a92f07f557ba0efa9ad849d233d635667b096 assets/tradeworks/blockstates/warped_side_shelf.json
 0f15e903da85305820dc62a40fdd47a8f73e6231 assets/tradeworks/blockstates/white_inverted_table_cloth.json
 7d31478484a7107cd9cb197e1a4117d109cea4ba assets/tradeworks/blockstates/yellow_inverted_table_cloth.json
-3fc72f04be2a309efa92cabd6607370b8295a473 assets/tradeworks/lang/en_ud.json
-598e0edbd5365686e05b72fb24c907d0f46e5510 assets/tradeworks/lang/en_us.json
+a559842ab91b4c93d68d23a67fcd1c930e78c121 assets/tradeworks/lang/en_ud.json
+af53ee69139fbc1e90343f0e896d6cbb5bceecd1 assets/tradeworks/lang/en_us.json
 090f632bf5a109398b90dc1a504334923169cda4 assets/tradeworks/models/block/black_inverted_table_cloth.json
 093c196b303fe3259813313d92ba6cb9025d6ef5 assets/tradeworks/models/block/blue_inverted_table_cloth.json
 166db618ef687df7fb30a4d00e84eefc680657ad assets/tradeworks/models/block/brown_inverted_table_cloth.json
