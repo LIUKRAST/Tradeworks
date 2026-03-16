@@ -1,0 +1,3 @@
+- Fixed dependencies with everycomp
+- Fixed rendering of shelves
+- Fixed lang generation
