@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "tradeworks:block/side_shelf/acacia",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "tradeworks:block/side_shelf/acacia"
+    },
+    "facing=south": {
+      "model": "tradeworks:block/side_shelf/acacia",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tradeworks:block/side_shelf/acacia",
+      "y": 270
+    }
+  }
+}

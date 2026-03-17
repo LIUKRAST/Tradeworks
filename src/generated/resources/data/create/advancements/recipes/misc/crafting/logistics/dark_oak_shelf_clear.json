@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dark_oak_shelf": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tradeworks:dark_oak_shelf"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "create:crafting/logistics/dark_oak_shelf_clear"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_oak_shelf",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "create:crafting/logistics/dark_oak_shelf_clear"
+    ]
+  },
+  "sends_telemetry_event": false
+}

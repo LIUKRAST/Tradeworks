@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tradeworks:light_blue_inverted_table_cloth"
+    }
+  ],
+  "result": {
+    "item": "tradeworks:light_blue_inverted_table_cloth"
+  }
+}

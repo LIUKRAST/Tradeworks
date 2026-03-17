@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "create:magenta_table_cloth"
+  },
+  "result": "tradeworks:magenta_inverted_table_cloth"
+}

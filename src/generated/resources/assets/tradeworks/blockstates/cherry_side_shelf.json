@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "tradeworks:block/side_shelf/cherry",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "tradeworks:block/side_shelf/cherry"
+    },
+    "facing=south": {
+      "model": "tradeworks:block/side_shelf/cherry",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tradeworks:block/side_shelf/cherry",
+      "y": 270
+    }
+  }
+}

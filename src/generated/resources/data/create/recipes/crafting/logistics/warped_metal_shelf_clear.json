@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tradeworks:warped_metal_shelf"
+    }
+  ],
+  "result": {
+    "item": "tradeworks:warped_metal_shelf"
+  }
+}

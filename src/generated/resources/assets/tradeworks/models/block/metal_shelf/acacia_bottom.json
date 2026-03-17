@@ -1,0 +1,8 @@
+{
+  "parent": "tradeworks:block/metal_shelf/bottom",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "0": "tradeworks:block/shelf/acacia",
+    "particle": "tradeworks:block/shelf/acacia"
+  }
+}

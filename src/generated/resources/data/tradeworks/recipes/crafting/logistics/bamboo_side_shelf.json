@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:chain"
+    },
+    "B": {
+      "item": "minecraft:bamboo_stairs"
+    },
+    "C": {
+      "item": "create:andesite_alloy"
+    }
+  },
+  "pattern": [
+    " C ",
+    "ABA",
+    "ABA"
+  ],
+  "result": {
+    "count": 2,
+    "item": "tradeworks:bamboo_side_shelf"
+  },
+  "show_notification": true
+}

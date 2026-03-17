@@ -1,0 +1,8 @@
+{
+  "parent": "tradeworks:block/side_shelf",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "0": "tradeworks:block/shelf/mangrove",
+    "particle": "tradeworks:block/shelf/mangrove"
+  }
+}

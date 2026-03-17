@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_oak_metal_shelf": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tradeworks:oak_metal_shelf"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tradeworks:crafting/logistics/oak_metal_shelf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_oak_metal_shelf",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tradeworks:crafting/logistics/oak_metal_shelf"
+    ]
+  },
+  "sends_telemetry_event": false
+}

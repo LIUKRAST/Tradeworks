@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tradeworks:jungle_metal_shelf"
+    }
+  ],
+  "result": {
+    "item": "tradeworks:jungle_metal_shelf"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "tradeworks:block/side_shelf/dark_oak",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "tradeworks:block/side_shelf/dark_oak"
+    },
+    "facing=south": {
+      "model": "tradeworks:block/side_shelf/dark_oak",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tradeworks:block/side_shelf/dark_oak",
+      "y": 270
+    }
+  }
+}

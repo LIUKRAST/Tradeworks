@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "tradeworks:green_inverted_table_cloth"
+  },
+  "result": "create:green_table_cloth"
+}

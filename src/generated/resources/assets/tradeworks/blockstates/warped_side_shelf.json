@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "tradeworks:block/side_shelf/warped",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "tradeworks:block/side_shelf/warped"
+    },
+    "facing=south": {
+      "model": "tradeworks:block/side_shelf/warped",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tradeworks:block/side_shelf/warped",
+      "y": 270
+    }
+  }
+}

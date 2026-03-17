@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tradeworks:acacia_metal_shelf"
+    }
+  ],
+  "result": {
+    "item": "tradeworks:acacia_metal_shelf"
+  }
+}
