@@ -1,0 +1,2 @@
+- Added Italian & Russian translation (Thanks to vladis for ru)
+- Now working on forge
