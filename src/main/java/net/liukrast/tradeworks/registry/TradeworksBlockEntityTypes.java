@@ -7,6 +7,7 @@ import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.liukrast.tradeworks.TradeworksConstants;
 import net.liukrast.tradeworks.block.ShelfRenderer;
+import net.liukrast.tradeworks.block.SideShelfBlockEntity;
 import net.minecraft.world.level.block.Block;
 
 import java.util.List;
@@ -20,8 +21,8 @@ public class TradeworksBlockEntityTypes {
                     .renderer(() -> TableClothRenderer::new)
                     .register();
 
-    public static final BlockEntityEntry<TableClothBlockEntity> SHELF =
-            REGISTRATE.blockEntity("shelf", TableClothBlockEntity::new)
+    public static final BlockEntityEntry<SideShelfBlockEntity> SHELF =
+            REGISTRATE.blockEntity("shelf", SideShelfBlockEntity::new)
                     .validBlocks(toArray(TradeworksBlocks.SHELVES))
                     .validBlocks(toArray(TradeworksBlocks.METAL_SHELVES))
                     .validBlocks(toArray(TradeworksBlocks.SIDE_SHELVES))
