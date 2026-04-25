@@ -12,18 +12,22 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
 public class ShelfRenderer extends SmartBlockEntityRenderer<TableClothBlockEntity> {
+    private final ItemRenderer itemRenderer;
     public ShelfRenderer(BlockEntityRendererProvider.Context context) {
         super(context);
+        itemRenderer = context.getItemRenderer();
     }
 
     @Override
@@ -49,6 +53,7 @@ public class ShelfRenderer extends SmartBlockEntityRenderer<TableClothBlockEntit
         TransformStack.of(ms)
                 .rotateCentered(rotationInRadians, Direction.UP);
         var axis = block.getRotatingItemsAxis();
+        int j = (int)blockEntity.getBlockPos().asLong();
         if(block instanceof ShelfBlock) {
             for (int i = 0; i < stacks.size(); i++) {
                 ItemStack entry = stacks.get(i);
@@ -69,8 +74,11 @@ public class ShelfRenderer extends SmartBlockEntityRenderer<TableClothBlockEntit
                     TransformStack.of(ms)
                             .rotate(-rotationInRadians + Mth.PI, Direction.UP);
 
-                DepotRenderer.renderItem(blockEntity.getLevel(), ms, buffer, light, OverlayTexture.NO_OVERLAY, entry, 0,
-                        null, Vec3.atCenterOf(blockEntity.getBlockPos()), true);
+                ms.scale(0.75f, 0.75f, 0.75f);
+
+                this.itemRenderer.
+                        renderStatic(entry, ItemDisplayContext.FIXED, light, OverlayTexture.NO_OVERLAY, ms, buffer, blockEntity.getLevel(), i+j);
+
                 ms.popPose();
             }
         } else {
@@ -88,8 +96,11 @@ public class ShelfRenderer extends SmartBlockEntityRenderer<TableClothBlockEntit
                     TransformStack.of(ms)
                             .rotate(-rotationInRadians + Mth.PI, Direction.UP);
 
-                DepotRenderer.renderItem(blockEntity.getLevel(), ms, buffer, light, OverlayTexture.NO_OVERLAY, entry, 0,
-                        null, Vec3.atCenterOf(blockEntity.getBlockPos()), true);
+                ms.scale(0.75f, 0.75f, 0.75f);
+
+                this.itemRenderer.
+                        renderStatic(entry, ItemDisplayContext.FIXED, light, OverlayTexture.NO_OVERLAY, ms, buffer, blockEntity.getLevel(), i+j);
+
                 ms.popPose();
             }
         }
