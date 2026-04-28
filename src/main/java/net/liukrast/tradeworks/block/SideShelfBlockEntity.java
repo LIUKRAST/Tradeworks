@@ -32,6 +32,8 @@ public class SideShelfBlockEntity extends TableClothBlockEntity {
             var axis = getBlockState().getValue(ShelfBlock.HORIZONTAL_AXIS);
             for(Direction dir : Direction.values()) {
                 if(dir.getAxis() == axis) {
+                    if(dir.getAxis() == facing.getAxis())
+                        break;
                     if(dir != facing) {
                         facing = dir;
                         setChanged();

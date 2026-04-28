@@ -1,3 +1,2 @@
-- Fixed dependencies with everycomp
-- Fixed rendering of shelves
-- Fixed lang generation
+- Now compatible with create 6.0.10
+- Fixed stucture rotation not working properly with items/tag
